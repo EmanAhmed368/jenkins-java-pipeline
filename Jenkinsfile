@@ -1,27 +1,25 @@
+
 pipeline {
     agent any
 
     stages {
         stage('Check Java') {
             steps {
-                bat 'where.exe javac'
-                bat 'javac -version'
-                bat 'where.exe java'
-                bat 'java -version'
+                bat '"C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.5.8-hotspot\\bin\\java.exe" -version'
             }
         }
 
         stage('Compile') {
             steps {
                 echo 'Compiling...'
-                bat 'javac HelloWorld.java'
+                bat '"C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.5.8-hotspot\\bin\\javac.exe" HelloWorld.java'
             }
         }
 
         stage('Run') {
             steps {
                 echo 'Running...'
-                bat 'java HelloWorld'
+                bat '"C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.5.8-hotspot\\bin\\java.exe" HelloWorld'
             }
         }
     }
